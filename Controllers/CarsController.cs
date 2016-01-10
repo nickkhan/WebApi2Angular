@@ -57,7 +57,7 @@ namespace WebAppDevQuiz.Controllers
         }
 
         [HttpDelete]
-        [Route("car/delete/{carId:int}")]
+        [Route("car/{carId:int}")]
         [ResponseType(typeof(Car))]
         public IHttpActionResult DeleteCar(int carId)
         {
@@ -74,16 +74,16 @@ namespace WebAppDevQuiz.Controllers
         }
 
 
-        [HttpPost]
-        [Route("car/{carId:int}")]
+        [HttpPatch]
+        [Route("car/")]
         [ResponseType(typeof(Car))]
-        public IHttpActionResult PutCar(int carId, Car car)
+        public IHttpActionResult PatchCar(Car car)
         {
-            if (context.Cars.Find(carId) == null)
+            if (context.Cars.ToList().Where(x=>x.CarId == car.CarId).FirstOrDefault() == null)
                 return this.NotFound();
             else
             {
-                context.Cars.Remove(car);
+                context.Cars.ToList().Remove(car);
                 context.Cars.Add(car);
                 context.SaveChanges();
 
@@ -91,19 +91,27 @@ namespace WebAppDevQuiz.Controllers
             }
         }
 
-        [HttpPost]
-        [Route("car/{carId:int}")]
+        [HttpPut]
+        [Route("car/{car}")]
         [ResponseType(typeof(Car))]
-        public IHttpActionResult CreateCar(Car car)
+        public IHttpActionResult PutCar(Car car)
         {
-            context.Cars.Add(car);
+            if (car == null)
+                return this.BadRequest("Car cannot be null");
             try {
+                context.Cars.Add(car);
                 context.SaveChanges();
                 return this.Ok<Car>(car);
             }
             catch(DbUpdateConcurrencyException ex)
             {
-                return this.InternalServerError(ex);
+                var entry = ex.Entries.Single();
+                entry.OriginalValues.SetValues(entry.GetDatabaseValues());
+                return this.BadRequest("A concurrency exception was raised "+ ex.Message);
+            }
+            catch(Exception ex)
+            {
+                return this.BadRequest("An exception was raised." + ex.Message);
             }
         }
 

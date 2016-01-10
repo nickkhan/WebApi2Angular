@@ -1,5 +1,6 @@
-﻿<div data-ng-controller="carsController" class="container">
-    <div class="row">
+﻿
+ <div data-ng-controller="carsController" class="container" >
+    <div class="row" ng-cloak>
         <div class="col-md-12">
             <strong class="error">{{ error }}</strong>
             <p data-ng-hide="addMode"><a data-ng-click="toggleAdd()" href="javascript:;" class="btn btn-primary">Add New</a></p>
@@ -7,33 +8,34 @@
                 <div class="form-group">
                     <label for="cname" class="col-sm-2 control-label">Manufacturer:</label>
                     <div class="col-sm-10">
-                        <input type="text" class="form-control" id="manufacturer" placeholder="please enter your car manufacturer" data-ng-model="newcar.Manufacturer" required />
+                        <input type="text" class="form-control" id="manufacturer" placeholder="please enter your car manufacturer" data-ng-model="newcar.manufacturer" required />
                     </div>
                 </div>
                 <div class="form-group">
                     <label for="model" class="col-sm-2 control-label">Model:</label>
                     <div class="col-sm-10">
-                        <input type="text" class="form-control" id="model" placeholder="please enter the model of your car" data-ng-model="newcar.Model" required />
+                        <input type="text" class="form-control" id="model" placeholder="please enter the model of your car" data-ng-model="newcar.model" required />
                     </div>
                 </div>
                 <div class="form-group">
                     <label for="year" class="col-sm-2 control-label">Year:</label>
                     <div class="col-sm-10">
-                        <input type="text" class="form-control" id="year" placeholder="please enter the year" data-ng-model="newcar.Year" required />
+                        <input type="text" class="form-control" id="year" placeholder="please enter the year" data-ng-model="newcar.year" required />
                     </div>
                 </div>
                 <div class="form-group">
                     <label for="color" class="col-sm-2 control-label">Color:</label>
                     <div class="col-sm-10">
-                        <input type="text" class="form-control" id="color" placeholder="please enter the color" data-ng-model="newcar.Color" required />
+                        <input type="text" class="form-control" id="color" placeholder="please enter the color" data-ng-model="newcar.color" required />
                     </div>
                 </div>
                 <div class="form-group">
                     <label for="passengercount" class="col-sm-2 control-label">Passenger count:</label>
                     <div class="col-sm-10">
-                        <input type="text" class="form-control" id="PassengerSeatingCount" placeholder="please passenger seating count" data-ng-model="newcar.PassengerSeatingCount" required />
+                        <input type="text" class="form-control" id="PassengerSeatingCount" placeholder="please passenger seating count" data-ng-model="newcar.passengerSeatingCount" required />
                     </div>
                 </div>
+                <p data-ng-show="addMode"><a data-ng-click="add(newcar)" href="javascript:;">Create Car</a></p>
                 <br />
             </form>
         </div>
@@ -44,10 +46,10 @@
             <br />
         </div>
     </div>
-    <div class="row">
+    <div class="row" ng-cloak>
         <div class="col-md-12">
             <div class="table-responsive">
-                <table class="table table-bordered table-hover" style="width:800px">
+                <table class="table table-bordered table-hover" style="width:800px" ng-cloak>
                     <tr>
                         <th>#</th>
                         <th>Manufacturer</th>
@@ -57,38 +59,34 @@
                         <th>PassengerSeating</th>
                     </tr>
                     <tr data-ng-repeat="car in cars">
-                        <td><strong data-ng-hide="car.editMode">{{ car.CarId }}</strong></td>
+                        <td><strong data-ng-hide="editMode">{{ car.carId }}</strong></td>
                         <td>
-                            <p data-ng-hide="car.editMode">{{ car.Manufacturer }}</p>
-                            <input data-ng-show="car.editMode" type="text" data-ng-model="car.Name" />
+                            <p data-ng-hide="car.editMode">{{ car.manufacturer }}</p>
+                            <input data-ng-show="editMode" type="text" data-ng-model="car.manufacturer" />
                         </td>
                         <td>
-                            <p data-ng-hide="car.editMode">{{ car.Model }}</p>
-                            <input data-ng-show="car.editMode" type="text" data-ng-model="car.Address" />
+                            <p data-ng-hide="car.editMode">{{ car.model }}</p>
+                            <input data-ng-show="editMode" type="text" data-ng-model="car.model" />
                         </td>
                         <td>
-                            <p data-ng-hide="car.editMode">{{ car.Year }}</p>
-                            <input data-ng-show="car.editMode" type="text" data-ng-model="car.City" />
+                            <p data-ng-hide="car.editMode">{{ car.year }}</p>
+                            <input data-ng-show="editMode" type="text" data-ng-model="car.year" />
                         </td>
                         <td>
-                            <p data-ng-hide="car.editMode">{{ car.Color }}</p>
-                            <input data-ng-show="car.editMode" type="text" data-ng-model="car.Color" />
+                            <p data-ng-hide="car.editMode">{{ car.color }}</p>
+                            <input data-ng-show="editMode" type="text" data-ng-model="car.color" />
                         </td>
                         <td>
-                            <p data-ng-hide="car.editMode">{{ car.PassengerSeatingCount}}</p>
-                            <input data-ng-show="car.editMode" type="text" data-ng-model="car.Passengercount" />
+                            <p data-ng-hide="car.editMode">{{ car.passengerSeatingCount}}</p>
+                            <input data-ng-show="editMode" type="text" data-ng-model="car.passengerSeatingCount" />
                         </td>
                         <td>
-                            <p data-ng-hide="car.editMode"><a data-ng-click="toggleEdit(car)" href="javascript:;">Edit</a> | <a data-ng-click="deletecar(car)" href="javascript:;">Delete</a></p>
-                            <p data-ng-show="car.editMode"><a data-ng-click="save(car)" href="javascript:;">Save</a> | <a data-ng-click="toggleEdit(car)" href="javascript:;">Cancel</a></p>
+                            <p data-ng-hide="editMode"><a data-ng-click="toggleEdit(car)" href="javascript:;">Edit</a> | <a data-ng-click="deletecar(car)" href="javascript:;">Delete</a></p>
+                            <p data-ng-show="editMode"><a data-ng-click="save(car)" href="javascript:;">Save</a> | <a data-ng-click="toggleEdit(car)" href="javascript:;">Cancel</a></p>
                         </td>
                     </tr>
-                </table>
-                <hr />
+                </table>                
             </div>
         </div>
-    </div>
-    <div id="mydiv" data-ng-show="loading">
-        <img src="Images/ajax-loader.gif" class="ajax-loader" />
     </div>
 </div>

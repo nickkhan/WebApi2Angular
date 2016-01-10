@@ -26,7 +26,6 @@ D:\projects\WebAppDevQuiz\bin\roslyn\vbc.exe.config
 D:\projects\WebAppDevQuiz\bin\roslyn\vbc.rsp
 D:\projects\WebAppDevQuiz\bin\roslyn\VBCSCompiler.exe
 D:\projects\WebAppDevQuiz\bin\roslyn\VBCSCompiler.exe.config
-D:\projects\WebAppDevQuiz\bin\WebAppDevQuiz.dll.config
 D:\projects\WebAppDevQuiz\bin\WebAppDevQuiz.dll
 D:\projects\WebAppDevQuiz\bin\WebAppDevQuiz.pdb
 D:\projects\WebAppDevQuiz\bin\Antlr3.Runtime.dll
@@ -73,7 +72,8 @@ D:\projects\WebAppDevQuiz\bin\System.Web.WebPages.Razor.xml
 D:\projects\WebAppDevQuiz\bin\System.Net.Http.Formatting.xml
 D:\projects\WebAppDevQuiz\bin\System.Web.Http.xml
 D:\projects\WebAppDevQuiz\bin\System.Web.Http.WebHost.xml
-D:\projects\WebAppDevQuiz\obj\Debug\WebAppDevQuiz.Migrations.Initial.resources
-D:\projects\WebAppDevQuiz\obj\Debug\WebAppDevQuiz.csproj.GenerateResource.Cache
-D:\projects\WebAppDevQuiz\obj\Debug\WebAppDevQuiz.dll
-D:\projects\WebAppDevQuiz\obj\Debug\WebAppDevQuiz.pdb
+D:\projects\WebAppDevQuiz\obj\Release\WebAppDevQuiz.Migrations.Initial.resources
+D:\projects\WebAppDevQuiz\obj\Release\WebAppDevQuiz.csproj.GenerateResource.Cache
+D:\projects\WebAppDevQuiz\obj\Release\WebAppDevQuiz.dll
+D:\projects\WebAppDevQuiz\obj\Release\WebAppDevQuiz.pdb
+D:\projects\WebAppDevQuiz\bin\WebAppDevQuiz.dll.config
