@@ -77,3 +77,4 @@ D:\projects\WebAppDevQuiz\obj\Debug\WebAppDevQuiz.Migrations.Initial.resources
 D:\projects\WebAppDevQuiz\obj\Debug\WebAppDevQuiz.csproj.GenerateResource.Cache
 D:\projects\WebAppDevQuiz\obj\Debug\WebAppDevQuiz.dll
 D:\projects\WebAppDevQuiz\obj\Debug\WebAppDevQuiz.pdb
+D:\projects\WebAppDevQuiz\obj\Debug\WebAppDevQuiz.csprojResolveAssemblyReference.cache
